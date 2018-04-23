@@ -2,7 +2,7 @@ console.log('Działa')
 
 //Plansza
 window.onload= function () {
-
+var gameFields=[];
 
     for(var i = 0; i<64; i++) {
         var oneDiv = document.createElement('div')
@@ -18,7 +18,7 @@ window.onload= function () {
 
     console.log(document.querySelectorAll('div'))
     for(i = 0; i<onePiece.length; i++){
-        console.log(onePiece[i])
+        //console.log(onePiece[i])
         if (i<7 && i%2 ==0){
             onePiece[i].classList.add('black')
         }
@@ -45,12 +45,16 @@ window.onload= function () {
         }
     }
 
+    var elements = document.getElementsByClassName('black')
+    gameFields.push(elements)
+    console.log(gameFields)
+
 //PIONKI
-//     for(var i = 0; i<64; i++) {
+    for(var i = 0; i<64; i++) {
         var pawn = document.createElement('div')
         document.body.appendChild(pawn);
         pawn.classList.add('pawns')
-    // }
+    }
 };
 
 
