@@ -1,61 +1,49 @@
-console.log('Działa')
-
-//Plansza
-window.onload= function () {
-var gameFields=[];
-
-    for(var i = 0; i<64; i++) {
-        var oneDiv = document.createElement('div')
-        document.body.appendChild(oneDiv);
-        oneDiv.setAttribute('id', '1' + i);
-        oneDiv.addEventListener('click', function (e) {
-            console.log(e)
-        });
-
-    };
-    var onePiece = document.querySelectorAll('div')
+ const gameField  = [];
+const pawns = []
 
 
-    console.log(document.querySelectorAll('div'))
-    for(i = 0; i<onePiece.length; i++){
-        //console.log(onePiece[i])
-        if (i<7 && i%2 ==0){
-            onePiece[i].classList.add('black')
+window.onload =function () {
+
+
+    for (let i = 0; i < 8; i++) {
+
+        gameField[i] = []
+
+        for (let j = 0; j < 8; j++) {
+            gameField[i][j] = document.createElement('div');
+            document.body.appendChild(gameField[i][j]);
+            gameField[i][j].setAttribute('id', "[" + i + "," + j + "]");//Pomocniczo żeby widzieć indeksy--
+
+            if (i % 2 == 0 && j % 2 == 0) {
+                gameField[i][j].classList.add('black')
+            }
+            else if (i % 2 !== 0 && j % 2 !== 0) {
+                gameField[i][j].classList.add('black')
+            }
+
+
         }
-        else if (i%2 !==0 && i>7&& i<=15){
-            onePiece[i].classList.add('black')
-        }
-        else if (i%2 ==0 && i>15&& i<=23){
-            onePiece[i].classList.add('black')
-        }
-        else if (i%2 !==0 && i>23&& i<=31){
-            onePiece[i].classList.add('black')
-        }
-        else if (i%2 ==0 && i>31&& i<=39){
-            onePiece[i].classList.add('black')
-        }
-        else if (i%2 !==0 && i>39&& i<=47){
-            onePiece[i].classList.add('black')
-        }
-        else if (i%2 ==0 && i>47&& i<=55){
-            onePiece[i].classList.add('black')
-        }
-        else if (i%2 !==0 && i>55&& i<=63){
-            onePiece[i].classList.add('black')
-        }
+
     }
+    // for(let i = 0; i<24; i++){ -------------------------> generuje pionki
+    //     pawns[i]= document.createElement('div');
+    //     document.body.appendChild(pawns[i]);
+    //     pawns[i].classList.add('pawns')
+    // }
 
-    var elements = document.getElementsByClassName('black')
-    gameFields.push(elements)
-    console.log(gameFields)
-
-//PIONKI
-    for(var i = 0; i<64; i++) {
-        var pawn = document.createElement('div')
-        document.body.appendChild(pawn);
-        pawn.classList.add('pawns')
-    }
-};
+    console.log(gameField)
+    var pawnTest = document.getElementsByClassName('pawns')
+    console.log(pawnTest)
+    pawnTest.mouseDown =  function (e) {
 
 
 
+
+
+            this.style.left = e.clientX + 'px'
+            this.style.top = e.clientY + 'px'
+            console.log(this.style.left)
+        }
+
+
+}
